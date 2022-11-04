@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const Click1 = () => {
+		console.log('Parent');
+	};
+	const Click2 = (e) => {
+		console.log('Child');
+		e.stopPropagation();
+	};
+	return (
+		<div className='App'>
+			<div
+				onClick={Click1}
+				style={{ backgroundColor: 'red', width: 300, height: 400 }}
+			>
+				<h1>Hello</h1>
+				<button>Parent</button>
+
+				<button onClick={Click2}>Child</button>
+			</div>
+		</div>
+	);
 }
 
 export default App;
